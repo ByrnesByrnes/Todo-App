@@ -5,7 +5,7 @@ import TodoItem from './TodoItem'
 export default function TodoList({edit}) {
     const savedTodos = JSON.parse(localStorage.getItem('todos'))
     const [todos, setTodos] = useState(savedTodos || [])
-    console.log(edit, 'unde')
+  
     localStorage.setItem('todos', JSON.stringify(todos))
 
     const addTodo = todo => {
@@ -27,7 +27,6 @@ export default function TodoList({edit}) {
             return todo
         })
         return setTodos(updatedTodos)
-        // setTodos(prev => {prev.map(todo => todo.id === id ? value : todo)})
     }
 
     const completeTodo = (id) => {
@@ -89,6 +88,5 @@ export default function TodoList({edit}) {
                     />}
             </div>
         </>
-
     )
 }

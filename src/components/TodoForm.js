@@ -9,14 +9,13 @@ export default function TodoForm({onSubmit, todos, edit, date}) {
     const dateMinutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()
     const todoDateAdded = ` ${dateHour}:${dateMinutes}`
 
-
     const focus = useRef(null)
 
     useEffect(() => {
         focus.current.focus()
     },[])
 
-    console.log(todos)
+   
     const handleSubmit = event => {
         event.preventDefault()
         if(input.length> 0) {

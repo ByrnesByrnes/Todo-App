@@ -11,16 +11,13 @@ export default function Todo({ todos, completeTodo, removeTodo, fadeTodo, editTo
     //add Modal for update
     //add Drop down
     const [showInfo, setShowInfo] = useState('')
+    const [edit, setEdit] = useState({})
 
     const amPm = date.getHours() < 12 ? 'am' : 'pm'
-    const [edit, setEdit] = useState({})
    
     const submitEdit = value => {
         editTodo(edit.id, value)
-        setEdit({
-            id: null,
-            value: ''
-        })
+        setEdit({})
     }
    
     return (
@@ -67,7 +64,7 @@ export default function Todo({ todos, completeTodo, removeTodo, fadeTodo, editTo
                 />
                 <TiEdit
                     className={`${!todo.completed ? 'edit-icon': 'disabled'}`}
-                    onClick={() => !todo.completed && setEdit({id: todo.id, value: todo.text})}
+                    onClick={() => !todo.completed && setEdit({id: todo.id})}
                 />
             </div>
         </div>
